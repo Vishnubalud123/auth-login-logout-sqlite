@@ -7,13 +7,13 @@ export default function Dashboard() {
   const [serverResponse, setServerResponse] = useState('');
 
   const handleLogout = async () => {
-    await axios.post('http://localhost:5000/api/auth/logout', {}, { withCredentials: true });
+    await axios.post('https://auth-login-logout-sqlite.onrender.com/api/auth/logout', {}, { withCredentials: true });
     setCurrentUser(null);
   };
 
   const testProtected = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/dashboard', { withCredentials: true });
+      const res = await axios.get('https://auth-login-logout-sqlite.onrender.com/api/dashboard', { withCredentials: true });
       setServerResponse(JSON.stringify(res.data, null, 2));
     } catch (err) {
       setServerResponse(JSON.stringify(err.response?.data || { error: 'Failed' }, null, 2));
