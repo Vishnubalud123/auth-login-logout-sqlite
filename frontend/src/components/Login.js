@@ -13,7 +13,7 @@ export default function Login() {
     e.preventDefault();
     setError(''); setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password }, { withCredentials: true });
+      const res = await axios.post('https://auth-login-logout-sqlite.onrender.com/api/auth/login', { email, password }, { withCredentials: true });
       setCurrentUser(res.data.user);
     } catch (err) {
       setError(err.response?.data?.error || 'Login failed');
