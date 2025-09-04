@@ -16,7 +16,7 @@ export default function Register() {
     if (password !== confirmPassword) return setError('Passwords do not match');
     setError(''); setSuccess(''); setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', { email, password }, { withCredentials: true });
+      const res = await axios.post('https://auth-login-logout-sqlite.onrender.com/api/auth/register', { email, password }, { withCredentials: true });
       setCurrentUser(res.data.user);
       setSuccess('Registration successful!');
     } catch (err) {
