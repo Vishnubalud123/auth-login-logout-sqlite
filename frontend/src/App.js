@@ -14,7 +14,7 @@ function App() {
     window.showLogin = () => setView('login');
     window.showRegister = () => setView('register');
     // check session
-    axios.get('http://localhost:5000/api/auth/user', { withCredentials: true })
+    axios.get('https://auth-login-logout-sqlite.onrender.com/api/auth/user', { withCredentials: true })
       .then(res => setCurrentUser(res.data.user))
       .catch(() => setCurrentUser(null));
   }, [setCurrentUser]);
